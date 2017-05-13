@@ -1,0 +1,26 @@
+<div class="home">
+    <div class="row slider">
+    	<img ng-show="toggleSocial == 'image'" class="image" ng-src="/tvdemo/images/dance.png">
+	</div>
+	<script type="text/ng-template" id="tpl.html">
+             <div>
+				<img class="sliderImg{{i.id}} animated star" style="width:100%;" src="{{i.img}}"/>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 social-content">
+					<div class="spacer-50"></div>
+					<span><b>Event:</b> {{i.name}}</span><br>
+					<span><b>Date:</b> {{i.date}}</span><br>
+					<span><b>Time:</b> {{i.time}}</span><br><br>
+					
+					<span ng-show="(toggleInfo == 'more') && i.more">{{i.more}} <b>{{i.more2}}</b> {{i.more3}} <b>{{i.more4}}</b> {{i.more5}}</span>
+				</div>
+			</div>
+			</div>
+            </script>
+     <slick ng-show="toggleSocial == 'slider'" class="slider" settings="slickConfig2" ng-if="slickConfig2Loaded">
+         <div ng-repeat="i in data"  class="caro">
+             <div class="" ng-include="'tpl.html'"></div>
+         </div>
+     </slick>
+</div>

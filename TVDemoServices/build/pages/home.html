@@ -1,0 +1,17 @@
+<div class="home">
+    <div class="slider1">
+    	<img ng-repeat="slide in slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+	</div>
+	<div class="transparent" id="transparent">
+	<span>Good {{timeOfDay}}{{userName}}</span><br>
+	<span>What can I help you with tonight ?</span>
+	<!-- <div class="tlt" data-loop="true">
+	    <div class="texts">
+	        <span data-in-effect="pulse">Whats on my Calendar tomorrow?</span>
+	        <span data-in-effect="pulse">Are there any social events in the area?</span>
+	        <span data-in-effect="pulse">How many steps did I walk today?</span>
+	        <span data-in-effect="pulse">What medicines do I need to take now?</span>
+	    </div>
+	</div> -->
+	</div>
+</div>

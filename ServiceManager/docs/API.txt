@@ -1,0 +1,24 @@
+{name: "configuration.database.MongoConfiguration", desc: "Mongo Database Configuration Service", implClass: "com.ginny.configuration.database.MongoConfiguration"}
+{name: "remmgmnt.ReminderManagementService",desc: "Reminder Management Service", implClass: "com.ginny.remmgmnt.ReminderManagementService"}
+{name: "remidx.ReminderIndexingService", desc: "Reminder Indexing Service", implClass: "com.ginny.remidx.ReminderIndexingService"}
+
+	
+	
+
+
+/POST /smg/v1/services
+
+{name: "configuration.database.MongoConfiguration", desc: "Mongo Database Configuration Service", implClass: "com.ginny.configuration.database.MongoConfiguration"}
+{name: "remmgmnt.ReminderManagementService",desc: "Reminder Management Service", implClass: "com.ginny.remmgmnt.ReminderManagementService"}
+{name: "remidx.ReminderIndexingService", desc: "Reminder Indexing Service", implClass: "com.ginny.remidx.ReminderIndexingService"}
+	
+/GET /smg/v1/services
+
+/GET /smg/v1/nodes
+/POST /smg/v1/nodes
+/PUT /smg/v1/services/serviceid/deploy/[nodeid]
+/PUT /smg/v1/services/serviceid/un-deploy/[nodeid]
+/GET /smg/v1/services/deployed/status
+/PUT /smg/v1/services/[serviceid]/start/[nodeid]
+/PUT /smg/v1/services/[serviceid]/stop/[nodeid] 
+/GET /smg/v1/services/running-status

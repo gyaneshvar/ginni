@@ -1,0 +1,6 @@
+app.name=tvdemo
+app.version=1.0
+#C:/tools/apache-tomcat-7.0.59
+catalina.home=/opt/apache-tomcat-9.0.0.M17
+os.name=Linux
+#os.name=Windows 7

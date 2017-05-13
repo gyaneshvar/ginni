@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="myApp">
+
+<head>
+  <!-- SCROLLS -->
+  <base href="/tvdemo/">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
+
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="dist/css/animate.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" />
+  <!-- SPELLS -->
+
+</head>
+
+<!-- define angular controller -->
+
+<body ng-controller="mainCtrl">
+<div ng-show="logoView" class="screen">
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container" style="margin-left: 15%; float:left;">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+           <li ng-repeat="item in menu" ng-class="{active: item.router == menuActive }"><a href="{{item.route}}">{{item.label}}</a> </li>
+          </ul>
+        </div>
+      </div>
+      <div class="star">
+      	<img class="animated star" ng-click="reset()" style="height:35px; width:35px;" src="images/star.png"/>
+      	<span style="color: #fff;">23</span>
+      </div>
+    </nav>
+    
+ 
+
+  <div id="main">
+
+    <div ng-view></div>
+
+  </div>
+
+  <footer class="text-center">
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-animate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+<script src="dist/js/angular-slick.js"></script>
+<script src="dist/js/jquery.lettering.js"></script>
+<script src="dist/js/jquery.textillate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="scripts/script.js"></script>
+</div>
+<div ng-show="!logoView" id="main">
+
+    <div ng-view></div>
+
+</div>
+</body>
+
+</html>

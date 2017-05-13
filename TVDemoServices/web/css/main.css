@@ -1,0 +1,107 @@
+img{
+  margin:auto;
+  width: 100%;
+}
+.screen{
+	font-size: 35px;
+	background-image: url("../images/images.jpeg");
+	background-size: 100%;
+	height:100%;
+}
+.logo{
+	margin-left: 30%;
+	width: 40%;
+}
+#star2{
+	
+}
+.nav>li>a {
+    display: block;
+    padding: 15px 25px;
+}
+h3{
+	width: 100px;
+}
+#main{
+	margin-top: 50px;
+}
+.caro{
+	width: 900px;
+	margin:50px 50px 0 50px;
+	height:680px;
+	background: white;
+	box-shadow: 0 0 10px grey;
+}
+.caro > pageheader{
+	background:black;
+}
+.carousel-control.left {
+    z-index:1
+}  
+.carousel-control.right {
+    z-index:1
+}
+.slider1{
+	float: left;
+}
+
+h1{
+	font-size: 43px;
+}
+.spacer-50{
+	height:50px;
+}
+.spacer-100{
+	height:100px;
+}
+.text-left{
+	float: left;
+}
+.text-center{
+	float: left;
+	margin-left: 27%;
+}
+
+.text-right{
+	float: right;
+}
+.header{
+	padding: 0 15px 0px 15px;
+    margin: 0px -15px 0 -15px;
+    background: #333;
+    color: white;
+}
+.calender-content{
+	font-size: 43px;
+	text-align: center;
+}
+.social-content{
+	font-size: 43px;
+	text-align: left;
+}
+.wellness-content{
+	font-size: 43px;
+	text-align: center;
+}
+.align-left{
+	text-align: left;
+}
+.transparent{
+	height: 70%;
+    padding-top: 10%;
+    font-size: 2em;
+    width: 80%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+    top: 20%;
+    left: 10%;
+    text-align: center;
+    color: #fff;
+
+}
+.red{
+	color: red;
+}
+.green{
+	color: green;
+}

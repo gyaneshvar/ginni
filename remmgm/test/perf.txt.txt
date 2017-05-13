@@ -1,0 +1,13 @@
+All times are in millis.
+
+Number Of Record Inserted=1000 Num of record searched=1597 num of record inserted in 1ms=166 num of queries=6 num of queies in 1ms=3
+
+Number Of Record Inserted=10000 Num of record searched=10678 num of record inserted in 1ms=454 num of queries=22 num of queies in 1ms=7
+
+Number Of Record Inserted=100000 Num of record searched=110151 num of record inserted in 1ms=1176 num of queries=85 num of queies in 1ms=6
+
+
+Number Of Record Inserted=1000000 Num of record searched=1050172 num of record inserted in 1ms=517 num of queries=1934 num of queies in 1ms=49
+
+
+Number Of Record Inserted=10000000 Num of record searched=10121079 num of record inserted in 1ms=578 num of queries=17287 num of queies in 1ms=67

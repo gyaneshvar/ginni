@@ -1,0 +1,26 @@
+<div class="row">
+	<script type="text/ng-template" id="tpl.html">
+             <div>
+				<div class="header">
+				<p class="text-left">{{i.date | date:'EEEE'}}</p>
+				<p class="text-right">{{i.date | date:'longDate'}}</p>
+				<div style="clear: both"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1 wellness-content">
+					<div class="spacer-50"></div>
+					<span><b>Medicine:</b> {{i.med1}}</span>
+					<div class="spacer-100"></div>
+					<span><b>Medicine:</b> {{i.med2}}</span>
+					<div class="spacer-100"></div>
+					<span ng-if="i.med3"><b>Medicine:</b> {{i.med3}}</span>
+				</div>
+			</div>
+			</div>
+            </script>
+            <slick class="slider" settings="slickConfig2" ng-if="slickConfig2Loaded">
+                <div ng-repeat="i in data"  class="caro">
+                    <div class="" ng-include="'tpl.html'"></div>
+                </div>
+            </slick>
+</div>
