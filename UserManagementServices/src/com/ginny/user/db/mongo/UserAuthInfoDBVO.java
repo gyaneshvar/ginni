@@ -1,4 +1,4 @@
-package com.ginny.auth.db.mongo;
+package com.ginny.user.db.mongo;
 
 public class UserAuthInfoDBVO {
 	String userId;

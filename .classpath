@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="AlexaConversationDemoServices/src"/>
+	<classpathentry kind="src" path="AuthenticationServices/src"/>
+	<classpathentry kind="src" path="ReminderManagementServices/src"/>
+	<classpathentry kind="src" path="ServiceManager/src"/>
+	<classpathentry kind="src" path="TVDemoServices/src"/>
+	<classpathentry kind="src" path="UserManagementServices/src"/>
+	<classpathentry kind="src" path="remmgm/src"/>
+	<classpathentry kind="lib" path="ServerJavaLib/commons-jexl-2.1.1.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/dsn.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/gimap.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/gson-1.7.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/imap.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/jackson-annotations-2.1.2.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/jackson-core-2.1.2.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/jackson-databind-2.1.2.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/jstl.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/mailapi.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/mongo-java-driver-3.1.0.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/pop3.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/smtp.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/standard.jar"/>
+	<classpathentry kind="lib" path="ServerJavaLib/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

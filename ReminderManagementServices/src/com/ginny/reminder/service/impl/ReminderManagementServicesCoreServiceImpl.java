@@ -48,4 +48,10 @@ public class ReminderManagementServicesCoreServiceImpl implements
 		return dbvoList != null ? new Gson().toJson(dbvoList) : null;
 	}
 
+	@Override
+	public void addReminder(String userId, String reminderJSON) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
