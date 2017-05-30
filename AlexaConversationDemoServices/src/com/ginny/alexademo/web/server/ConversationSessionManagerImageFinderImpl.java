@@ -7,12 +7,12 @@ import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 
-public class ConversationSessionManagerCommunityEventFinderImpl implements
+public class ConversationSessionManagerImageFinderImpl implements
 		ConversationSessionManager {
-	static ConversationSessionManagerCommunityEventFinderImpl manager = new ConversationSessionManagerCommunityEventFinderImpl();
+	static ConversationSessionManagerImageFinderImpl manager = new ConversationSessionManagerImageFinderImpl();
 
 	static enum VoceCommandID {
-		UP_COMMING_EVENTS, SECOND_EVENT, LAST_EVENT, FATHER_BRUNCH, ADDING_BRUNCH, BOOK_MY_RIDE, CONTACING_DAUGHTER, CONTACING_SON, CONTACING_UBER, DAUGHTER_CONFIRMED, SON_CONFIRMED, UBER_CONFIRMED, SHARE_PICTURE_YES, SHARE_PICTURE_NO
+		FAMILY_PICTURES,NATURE_PICTURES
 	}
 
 	// device id session map
@@ -65,97 +65,39 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 				" deviceID=" + deviceId + " ...findLastCommand(deviceId)"
 						+ findLastCommand(deviceId));
 
-		String UP_COMMING_EVENTS = "These are the upcoming events in the community. ";
-		String FIRST_EVENT = " First event is the movie night this Friday ?";
-		String SECOND_EVENT = "Blossom trail hiking event ?";
-
-		String LAST_EVENT = "Father`s Day brunch";
-		String FATHER_BRUNCH = "Father`s day brunch will be in Holiday Touch dining room and free for "
-				+ "community members. Brunch will be served from 12:00 to 1:00. No reservation required?";
+		String FAMILY_PICTURES = "Showing some family pictures";
+		String NATURE_PICTURES = "Showing some nature pictures";
 		// User: What is in my calendar tomorrow?
-		if (isStartOfNewSession(queryMessage)) {
+		if (isStartOfNewSession(queryMessage) && queryMessageRaw.contains("family")) {
 
 			String response = "{_Q_response_Q_: { _Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> UP_COMMING_EVENTS"
+					+ " _Q_ssml_Q_: _Q_<speak> FAMILY_PICTURES"
 
-					+ " FIRST_EVENT  </speak>_Q_}} }";
+					+ " </speak>_Q_}} }";
 
 			response = response.replace("_Q_", "\"");
-			response = response.replace("UP_COMMING_EVENTS", UP_COMMING_EVENTS);
-			response = response.replace("FIRST_EVENT", FIRST_EVENT);
+			response = response.replace("FAMILY_PICTURES", FAMILY_PICTURES);
 			// save command
 			cnvSession.addCommand(new VoiceCommand(
-					VoceCommandID.UP_COMMING_EVENTS.toString(),
-					VoceCommandID.UP_COMMING_EVENTS.toString(),
-					UP_COMMING_EVENTS));
+					VoceCommandID.FAMILY_PICTURES.toString(),
+					VoceCommandID.FAMILY_PICTURES.toString(),
+					FAMILY_PICTURES));
 			return response;
-		} else if (queryMessage.contains("next")
-				&& findLastCommand(deviceId) != null
-				&& findLastCommand(deviceId).id
-						.equals(VoceCommandID.UP_COMMING_EVENTS.toString())) {
+		}if (isStartOfNewSession(queryMessage) && queryMessageRaw.contains("nature")) {
 
-			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> SECOND_EVENT"
-					+ "    </speak>_Q_}} }";
+			String response = "{_Q_response_Q_: { _Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
+					+ " _Q_ssml_Q_: _Q_<speak> NATURE_PICTURES"
+
+					+ "   </speak>_Q_}} }";
 
 			response = response.replace("_Q_", "\"");
-			response = response.replace("SECOND_EVENT", SECOND_EVENT);
-
+			response = response.replace("NATURE_PICTURES", NATURE_PICTURES);
 			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.SECOND_EVENT
-					.toString(), VoceCommandID.SECOND_EVENT.toString(),
-					SECOND_EVENT));
+			cnvSession.addCommand(new VoiceCommand(
+					VoceCommandID.NATURE_PICTURES.toString(),
+					VoceCommandID.NATURE_PICTURES.toString(),
+					NATURE_PICTURES));
 			return response;
-		} else if (queryMessage.contains("next")
-				&& findLastCommand(deviceId) != null
-				&& findLastCommand(deviceId).id
-						.equals(VoceCommandID.SECOND_EVENT.toString())) {
-
-			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> LAST_EVENT"
-					+ "    </speak>_Q_}} }";
-
-			response = response.replace("_Q_", "\"");
-			response = response.replace("LAST_EVENT", LAST_EVENT);
-
-			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.LAST_EVENT
-					.toString(), VoceCommandID.LAST_EVENT.toString(),
-					LAST_EVENT));
-			return response;
-		} else if (queryMessage.contains("father")
-				&& queryMessage.contains("brunch")
-				&& findLastCommand(deviceId) != null) {
-
-			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> FATHER_BRUNCH"
-					+ "    </speak>_Q_}} }";
-
-			response = response.replace("_Q_", "\"");
-			response = response.replace("FATHER_BRUNCH", FATHER_BRUNCH);
-
-			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.FATHER_BRUNCH
-					.toString(), VoceCommandID.FATHER_BRUNCH.toString(),
-					FATHER_BRUNCH));
-			return response;
-		} else if (queryMessage.contains("calendar")
-				&& findLastCommand(deviceId) != null
-				&& findLastCommand(deviceId).id
-						.equals(VoceCommandID.FATHER_BRUNCH.toString())) {
-
-			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> adding to calendar"
-					+ "    </speak>_Q_}} }";
-
-			response = response.replace("_Q_", "\"");
-
-			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.ADDING_BRUNCH
-					.toString(), VoceCommandID.ADDING_BRUNCH.toString(),
-					"ADDING_BRUNCH"));
-			return response;
-
 		} else {
 			String response = "{_Q_response_Q_: {_Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
 					+ " _Q_ssml_Q_: _Q_<speak>   </speak>_Q_}} }";
@@ -188,13 +130,11 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 	}
 
 	public boolean isStartOfNewSession(String queryMessage) {
-		return queryMessage.contains("event")
-				&& (queryMessage.contains("neighborhood")
-						|| queryMessage.contains("community") || queryMessage
-							.contains("nearby"));
+		return  (queryMessage.contains("family")
+						|| queryMessage.contains("nature") );
 	}
 
-	private ConversationSessionManagerCommunityEventFinderImpl() {
+	private ConversationSessionManagerImageFinderImpl() {
 	}
 
 	public static ConversationSessionManager getConversationSessionManager() {
