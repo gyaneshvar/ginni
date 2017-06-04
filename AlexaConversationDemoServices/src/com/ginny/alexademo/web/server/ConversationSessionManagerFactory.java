@@ -48,7 +48,9 @@ public class ConversationSessionManagerFactory {
 					.getConversationSessionManager().reset(deviceId);
 			ConversationSessionManagerCommunityEventFinderImpl
 					.getConversationSessionManager().reset(deviceId);
-			demoUser = "Doug";
+			ConversationSessionManagerImageFinderImpl
+			.getConversationSessionManager().reset(deviceId);
+
 			String response = "{_Q_response_Q_: { _Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
 					+ " _Q_ssml_Q_: _Q_<speak> Yes I am ? </speak>_Q_}} }";
 
