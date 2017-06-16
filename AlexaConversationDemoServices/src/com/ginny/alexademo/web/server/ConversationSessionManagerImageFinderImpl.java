@@ -65,8 +65,8 @@ public class ConversationSessionManagerImageFinderImpl implements
 				" deviceID=" + deviceId + " ...findLastCommand(deviceId)"
 						+ findLastCommand(deviceId));
 
-		String FAMILY_PICTURES = "Showing some family pictures";
-		String NATURE_PICTURES = "Showing some nature pictures";
+		String FAMILY_PICTURES = "Switching to family pictures";
+		String NATURE_PICTURES = "Switching to nature pictures";
 		// User: What is in my calendar tomorrow?
 		if (isStartOfNewSession(queryMessage) && queryMessageRaw.contains("family")) {
 
