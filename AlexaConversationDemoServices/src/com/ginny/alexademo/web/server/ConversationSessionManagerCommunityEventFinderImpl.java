@@ -69,7 +69,7 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 		String FIRST_EVENT = " First event is the movie night this Friday ?";
 		String SECOND_EVENT = "Beach Boys Catch A Wave Early Show on September 10?";
 
-		String LAST_EVENT = "Giants vs Dodgers";
+		String LAST_EVENT = "Giants vs Dodgers on September 11 ?";
 		String GIANTS_DODGERS = "Giants vs Dodgers will be on Monday, September 11 ."
 				+ " Enjoy watching the game from the Virgin American Club Level seats at AT&T Park in San Francisco. "
 				+ "The bus will leave from Gateway Clubhouse at 5:15 p.m. and return at approximately 11 p.m. The cost is $105.";
