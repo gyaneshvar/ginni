@@ -12,7 +12,7 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 	static ConversationSessionManagerCommunityEventFinderImpl manager = new ConversationSessionManagerCommunityEventFinderImpl();
 
 	static enum VoceCommandID {
-		UP_COMMING_EVENTS, SECOND_EVENT, LAST_EVENT, FATHER_BRUNCH, ADDING_BRUNCH, BOOK_MY_RIDE, CONTACING_DAUGHTER, CONTACING_SON, CONTACING_UBER, DAUGHTER_CONFIRMED, SON_CONFIRMED, UBER_CONFIRMED, SHARE_PICTURE_YES, SHARE_PICTURE_NO
+		UP_COMMING_EVENTS, SECOND_EVENT, LAST_EVENT, GIANTS_DODGERS, ADDING_GIANTS_DODGERS, BOOK_MY_RIDE, CONTACING_DAUGHTER, CONTACING_SON, CONTACING_UBER, DAUGHTER_CONFIRMED, SON_CONFIRMED, UBER_CONFIRMED, SHARE_PICTURE_YES, SHARE_PICTURE_NO
 	}
 
 	// device id session map
@@ -67,11 +67,13 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 
 		String UP_COMMING_EVENTS = "These are the upcoming events in the community. ";
 		String FIRST_EVENT = " First event is the movie night this Friday ?";
-		String SECOND_EVENT = "Blossom trail hiking event ?";
+		String SECOND_EVENT = "Beach Boys Catch A Wave Early Show on September 10?";
 
-		String LAST_EVENT = "Father`s Day brunch";
-		String FATHER_BRUNCH = "Father`s day brunch will be in Holiday Touch dining room and free for "
-				+ "community members. Brunch will be served from 12:00 to 1:00. No reservation required?";
+		String LAST_EVENT = "Giants vs Dodgers";
+		String GIANTS_DODGERS = "Giants vs Dodgers will be on Monday, September 11 ."
+				+ " Enjoy watching the game from the Virgin American Club Level seats at AT&T Park in San Francisco. "
+				+ "The bus will leave from Gateway Clubhouse at 5:15 p.m. and return at approximately 11 p.m. The cost is $105.";
+
 		// User: What is in my calendar tomorrow?
 		if (isStartOfNewSession(queryMessage)) {
 
@@ -123,26 +125,26 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 					.toString(), VoceCommandID.LAST_EVENT.toString(),
 					LAST_EVENT));
 			return response;
-		} else if (queryMessage.contains("father")
-				&& queryMessage.contains("brunch")
+		} else if (queryMessage.contains("giant")
+				&& queryMessage.contains("dodger")
 				&& findLastCommand(deviceId) != null) {
 
 			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
-					+ " _Q_ssml_Q_: _Q_<speak> FATHER_BRUNCH"
+					+ " _Q_ssml_Q_: _Q_<speak> GIANTS_DODGERS"
 					+ "    </speak>_Q_}} }";
 
 			response = response.replace("_Q_", "\"");
-			response = response.replace("FATHER_BRUNCH", FATHER_BRUNCH);
+			response = response.replace("GIANTS_DODGERS", GIANTS_DODGERS);
 
 			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.FATHER_BRUNCH
-					.toString(), VoceCommandID.FATHER_BRUNCH.toString(),
-					FATHER_BRUNCH));
+			cnvSession.addCommand(new VoiceCommand(VoceCommandID.GIANTS_DODGERS
+					.toString(), VoceCommandID.GIANTS_DODGERS.toString(),
+					GIANTS_DODGERS));
 			return response;
 		} else if (queryMessage.contains("calendar")
 				&& findLastCommand(deviceId) != null
 				&& findLastCommand(deviceId).id
-						.equals(VoceCommandID.FATHER_BRUNCH.toString())) {
+						.equals(VoceCommandID.GIANTS_DODGERS.toString())) {
 
 			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
 					+ " _Q_ssml_Q_: _Q_<speak> adding to calendar"
@@ -151,9 +153,9 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 			response = response.replace("_Q_", "\"");
 
 			// save command
-			cnvSession.addCommand(new VoiceCommand(VoceCommandID.ADDING_BRUNCH
-					.toString(), VoceCommandID.ADDING_BRUNCH.toString(),
-					"ADDING_BRUNCH"));
+			cnvSession.addCommand(new VoiceCommand(VoceCommandID.ADDING_GIANTS_DODGERS
+					.toString(), VoceCommandID.ADDING_GIANTS_DODGERS.toString(),
+					"ADDING_GIANTS_DODGERS"));
 			return response;
 
 		} else {
