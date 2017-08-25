@@ -70,9 +70,8 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 		String SECOND_EVENT = "Beach Boys Catch A Wave Early Show on September 10?";
 
 		String LAST_EVENT = "Giants vs Dodgers on September 11 ?";
-		String GIANTS_DODGERS = "Giants vs Dodgers will be on Monday, September 11 ."
-				+ " Enjoy watching the game from the Virgin American Club Level seats at AT&T Park in San Francisco. "
-				+ "The bus will leave from Gateway Clubhouse at 5:15 p.m. and return at approximately 11 p.m. The cost is $105.";
+		String GIANTS_DODGERS = "Giants vs Dodgers game will be on Monday, September 11 ."
+				+ "The bus will leave from Gateway Clubhouse at 5:15 p.m. for A T and T Park in San Francisco and return at 11 p.m. . Tickets are $105.";
 
 		// User: What is in my calendar tomorrow?
 		if (isStartOfNewSession(queryMessage)) {
@@ -125,8 +124,9 @@ public class ConversationSessionManagerCommunityEventFinderImpl implements
 					.toString(), VoceCommandID.LAST_EVENT.toString(),
 					LAST_EVENT));
 			return response;
-		} else if (queryMessage.contains("giant")
-				&& queryMessage.contains("dodger")
+		} else if (queryMessage.contains("game")
+				
+				&&( queryMessage.contains("info")  || queryMessage.contains("information") )
 				&& findLastCommand(deviceId) != null) {
 
 			String response = "{_Q_response_Q_: {_Q_shouldEndSession_Q_: false, _Q_outputSpeech_Q_: {_Q_type_Q_: _Q_SSML_Q_,"
